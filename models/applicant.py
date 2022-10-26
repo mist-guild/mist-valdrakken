@@ -21,3 +21,6 @@ class Applicant(db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
+
+    def to_json(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
