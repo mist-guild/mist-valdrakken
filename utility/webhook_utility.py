@@ -10,7 +10,7 @@ def send_applicant_webhook(new_applicant):
         "embeds": [
             {
                 "author": {
-                    "name": f"{new_applicant.character_name} - {new_applicant.id}",
+                    "name": f"{new_applicant.character_name} • {new_applicant.id}",
                     "icon_url": webhook_assets["image"],
                 },
                 "title": f"New Application for {new_applicant.team_choice}",
