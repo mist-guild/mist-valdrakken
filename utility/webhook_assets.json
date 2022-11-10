@@ -1,54 +1,54 @@
 {
     "Death Knight": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/deathknight.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/deathknight.png",
         "color": "12852794"
     },
     "Demon Hunter": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/demonhunter.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/demonhunter.png",
         "color": "10694857"
     },
     "Druid": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/druid.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/druid.png",
         "color": "16743690"
     },
     "Evoker": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/evoker.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/evoker.png",
         "color": "3380095"
     },
     "Hunter": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/hunter.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/hunter.png",
         "color": "11195250"
     },
     "Mage": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/mage.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/mage.png",
         "color": "4179947"
     },
     "Monk": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/monk.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/monk.png",
         "color": "65432"
     },
     "Paladin": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/paladin.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/paladin.png",
         "color": "16026810"
     },
     "Priest": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/priest.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/priest.png",
         "color": "16777215"
     },
     "Rogue": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/rogue.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/rogue.png",
         "color": "16774248"
     },
     "Shaman": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/shaman.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/shaman.png",
         "color": "28893"
     },
     "Warlock": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/warlock.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/warlock.png",
         "color": "8882414"
     },
     "Warrior": {
-        "image": "https://raw.githubusercontent.com/mist-guild/recruitment-manager/master/static/images/class_logo/warrior.png",
+        "image": "https://raw.githubusercontent.com/mist-guild/mist-rustbolt/master/src/assets/webhook_icons/warrior.png",
         "color": "13015917"
     }
 }
