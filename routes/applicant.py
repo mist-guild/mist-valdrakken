@@ -1,4 +1,7 @@
 import os
+import json
+import base64
+import zlib
 from models.applicant import Applicant
 from flask import redirect, request, Blueprint
 from utility.webhook_utility import send_applicant_webhook
@@ -34,3 +37,20 @@ def register_applicant():
 def get_applicant(applicant_id):
     applicant = Applicant.query.filter_by(id=applicant_id).first()
     return applicant.to_json(), 200
+
+
+@applicant.route('/archive/<int:applicant_id>', methods=['PUT'])
+def archive_applicant(applicant_id):
+    applicant = Applicant.query.filter_by(id=applicant_id).first()
+    applicant.archived_comments = str(request.data, encoding='utf-8')
+    applicant.save()
+    return applicant.to_json(), 200
+
+
+@applicant.route('/a')
+def a():
+    applicant = Applicant.query.filter_by(id=20).first()
+    a = zlib.decompress(base64.b64decode(
+        bytes(applicant.archived_comments, encoding='utf-8')
+    )).decode()
+    return a, 200
