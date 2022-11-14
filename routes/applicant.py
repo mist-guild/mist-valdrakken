@@ -22,7 +22,8 @@ def register_applicant():
                               real_life_summary=request.form["real_life_summary"],
                               skills_summary=request.form["skills_summary"],
                               proclivity_summary=request.form["proclivity_summary"],
-                              pizza_question=request.form["pizza_question"])
+                              pizza_question=request.form["pizza_question"],
+                              archived_comments=None)
     new_applicant.save()
     send_applicant_webhook(new_applicant)
     website_url = os.getenv("GUILD_WEBSITE_URL")

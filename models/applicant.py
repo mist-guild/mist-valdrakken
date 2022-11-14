@@ -17,6 +17,7 @@ class Applicant(db.Model):
     skills_summary = db.Column(db.Text, nullable=False)
     proclivity_summary = db.Column(db.Text, nullable=False)
     pizza_question = db.Column(db.Text, nullable=False)
+    archived_comments = db.Column(db.Text, nullable=True)
 
     def save(self):
         db.session.add(self)
