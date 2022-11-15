@@ -23,5 +23,8 @@ class Applicant(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def __str__(self) -> str:
+        return self.character_name + ": " + self.id
+    
     def to_json(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}

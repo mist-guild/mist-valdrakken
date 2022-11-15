@@ -1,4 +1,5 @@
 import os
+import json
 from models.applicant import Applicant
 from flask import redirect, request, Blueprint
 from sqlalchemy.sql import or_
@@ -31,6 +32,14 @@ def register_applicant():
     return redirect(website_url), 201
 
 
+@applicant.route("/all", methods=["GET"])
+def get_applicants():
+    applicants = Applicant.query.all()
+    data = {}
+    for applicant in applicants:
+        data[applicant.id] = applicant.character_name
+    return json.dumps(data), 200
+
 @applicant.route('/<int:applicant_id>', methods=['GET'])
 def get_applicant(applicant_id):
     applicant = Applicant.query.filter_by(id=applicant_id).first()
@@ -39,6 +48,7 @@ def get_applicant(applicant_id):
 
 @applicant.route('/exists', methods=['GET'])
 def applicant_exists():
+    print(request.json)
     discord_contact = request.json["discord_contact"]
     battlenet_contact = request.json["battlenet_contact"]
 
