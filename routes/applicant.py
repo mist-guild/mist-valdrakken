@@ -36,15 +36,19 @@ def get_applicant(applicant_id):
     applicant = Applicant.query.filter_by(id=applicant_id).first()
     return applicant.to_json(), 200
 
+
 @applicant.route('/exists', methods=['GET'])
 def applicant_exists():
     discord_contact = request.json["discord_contact"]
     battlenet_contact = request.json["battlenet_contact"]
-    
-    discord_contact = Applicant.query.filter_by(discord_contact=discord_contact).all()
-    battlenet_contact = Applicant.query.filter_by(battlenet_contact=battlenet_contact).all()
-    
-    found_applicants = [applicant.id for applicant in discord_contact + battlenet_contact] 
+
+    discord_contact = Applicant.query.filter_by(
+        discord_contact=discord_contact).all()
+    battlenet_contact = Applicant.query.filter_by(
+        battlenet_contact=battlenet_contact).all()
+
+    found_applicants = [
+        applicant.id for applicant in discord_contact + battlenet_contact]
     return found_applicants, 200
 
 
