@@ -40,6 +40,7 @@ def get_applicants():
         data[applicant.id] = applicant.character_name
     return json.dumps(data), 200
 
+
 @applicant.route('/<int:applicant_id>', methods=['GET'])
 def get_applicant(applicant_id):
     applicant = Applicant.query.filter_by(id=applicant_id).first()
@@ -48,7 +49,7 @@ def get_applicant(applicant_id):
 
 @applicant.route('/exists', methods=['GET'])
 def applicant_exists():
-    print(request.json)
+    # TODO: wrap a lot of logic away
     discord_contact = request.json["discord_contact"]
     battlenet_contact = request.json["battlenet_contact"]
 
@@ -57,9 +58,16 @@ def applicant_exists():
     battlenet_contact = Applicant.query.filter_by(
         battlenet_contact=battlenet_contact).all()
 
-    found_applicants = [
-        applicant.id for applicant in discord_contact + battlenet_contact]
-    return found_applicants, 200
+    found_applicants = []
+    if "called_from" in request.json:
+        called_from = request.json["called_from"]
+        found_applicants = [applicant.id for applicant in discord_contact +
+                            battlenet_contact if applicant.id != called_from]
+    else:
+        found_applicants = [
+            applicant.id for applicant in discord_contact + battlenet_contact]
+
+    return [*set(found_applicants)], 200
 
 
 @applicant.route('/archive/<int:applicant_id>', methods=['PUT'])
