@@ -2,7 +2,6 @@ import os
 import json
 from models.applicant import Applicant
 from flask import redirect, request, Blueprint
-from sqlalchemy.sql import or_
 from utility.webhook_utility import send_applicant_webhook
 
 applicant = Blueprint('applicant', __name__,

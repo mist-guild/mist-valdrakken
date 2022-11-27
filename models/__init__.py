@@ -1,4 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-from models import applicant
+from models import applicant, reagent_count

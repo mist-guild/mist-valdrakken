@@ -1,6 +1,7 @@
 import os
 from models import db
 from routes.applicant import applicant
+from routes.reagent_count import reagent
 from dotenv import load_dotenv
 from flask import Flask
 
@@ -13,6 +14,7 @@ app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 db.init_app(app)
 
 app.register_blueprint(applicant)
+app.register_blueprint(reagent)
 
 if __name__ == '__main__':
     with app.app_context():
