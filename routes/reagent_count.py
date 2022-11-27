@@ -1,5 +1,3 @@
-import os
-import json
 from models.reagent_count import ReagentCount
 from flask import redirect, request, Blueprint
 
@@ -24,6 +22,8 @@ def get_put_by_character_name(character_name):
         character_name=character_name).first()
 
     if request.method == 'GET':
+        if reagent is None:
+            return "Reagent not found!", 404
         return reagent.to_json(), 200
     elif request.method == 'PUT':
         # if reagent is None, create reagent
@@ -40,7 +40,7 @@ def get_put_by_character_name(character_name):
             setattr(reagent, convert_reagent_name(
                 data), request.json[data])
         reagent.save()
-        
+
         # return reagent
         return "Reagent successfully saved!", 200
 
