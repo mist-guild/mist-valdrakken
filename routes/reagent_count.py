@@ -28,11 +28,11 @@ def get_put_by_character_name(character_name):
     elif request.method == 'PUT':
         # if reagent is None, create reagent
         if reagent is None:
-            reagent = ReagentCount(character_name=character_name,
-                                   hochenblume_bronze=0,
-                                   writhebark_gold=0,
-                                   bubble_poppy_bronze=0,
-                                   bubble_poppy_silver=0)
+            reagent = ReagentCount(character_name=character_name)
+            for attr in dir(reagent):
+                if attr == "character_name":
+                    continue
+                setattr(reagent, attr, 0)
 
         # update reagent
         del request.json['Character']
@@ -48,5 +48,8 @@ def get_put_by_character_name(character_name):
 # TODO: move to service
 def convert_reagent_name(reagent_name):
     reagent_name = reagent_name.lower()
-    reagent_name = reagent_name.replace(" - ", "_")
+    reagent_name = reagent_name.replace(' - ', '_')
+    reagent_name = reagent_name.replace('-', '_')
+    reagent_name = reagent_name.replace("'s", 's')
+    reagent_name = reagent_name.replace(' ', '_')
     return reagent_name
