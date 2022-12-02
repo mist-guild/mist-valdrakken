@@ -29,7 +29,9 @@ def get_put_by_character_name(character_name):
         # if reagent is None, create reagent
         if reagent is None:
             reagent = ReagentCount(character_name=character_name)
-            for attr in dir(reagent):
+            attrs = [attr for attr in
+                     dir(reagent) if not attr.startswith('__')]
+            for attr in attrs:
                 if attr == "character_name":
                     continue
                 setattr(reagent, attr, 0)
