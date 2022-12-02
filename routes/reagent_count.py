@@ -29,8 +29,9 @@ def get_put_by_character_name(character_name):
         # if reagent is None, create reagent
         if reagent is None:
             reagent = ReagentCount(character_name=character_name)
-            attrs = [attr for attr in
-                     dir(reagent) if not attr.startswith('__')]
+            attrs = [attr for attr in dir(reagent)
+                     if not callable(getattr(reagent, attr)) and
+                     not attr.startswith("__")]
             for attr in attrs:
                 if attr == "character_name":
                     continue
