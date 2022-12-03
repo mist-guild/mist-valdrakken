@@ -31,17 +31,19 @@ def get_put_by_character_name(character_name):
             reagent = ReagentCount(character_name=character_name)
             attrs = [attr for attr in dir(reagent)
                      if not callable(getattr(reagent, attr)) and
-                     not attr.startswith("__")]
+                     not attr.startswith("__") and
+                     not attr.startswith("_")]
             for attr in attrs:
-                if attr == "character_name":
+                if attr == "character_name" or attr == "id":
                     continue
                 setattr(reagent, attr, 0)
 
         # update reagent
         del request.json['Character']
         for data in request.json:
-            setattr(reagent, convert_reagent_name(
-                data), request.json[data])
+            setattr(reagent,
+                    convert_reagent_name(data),
+                    request.json[data])
         reagent.save()
 
         # return reagent
