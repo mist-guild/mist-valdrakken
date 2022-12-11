@@ -27,8 +27,7 @@ def register_applicant():
                               archived_comments=None)
     new_applicant.save()
     send_applicant_webhook(new_applicant)
-    website_url = os.getenv("GUILD_WEBSITE_URL")
-    return redirect(website_url), 201
+    return redirect("https://mistguild.us/confirm"), 201
 
 
 @applicant.route("/all", methods=["GET"])
